@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    link
+  </head>
+  <body>
+    <script charset="utf-8">
+      (function(modules) {
+    const require = function(id) {
+      const [fn, mapping] = modules[id];
+      const localRequire = function(relativePath) {
+        return require(mapping[relativePath]);
+      };
+      const module = {
+        exports: {},
+      };
+      return (fn)(localRequire, module,module.exports);
+    }
+    require(0);
+    // console.log(modules);
+  })({0: [
+      function(require, module, exports) {
+        "use strict";
+
+var _hello = _interopRequireDefault(require("./hello"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+console.log((0, _hello["default"])());
+        return module.exports;
+      },
+      {"./hello":1},
+    ],1: [
+      function(require, module, exports) {
+        "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = _interopRequireDefault(require("./name"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _default = function _default() {
+  return "hello ".concat(_name["default"], "!");
+};
+
+exports["default"] = _default;
+        return module.exports;
+      },
+      {"./name":2},
+    ],2: [
+      function(require, module, exports) {
+        "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var name = 'world';
+var _default = name;
+exports["default"] = _default;
+        return module.exports;
+      },
+      {},
+    ]})
+    </script>
+  </body>
+</html>
